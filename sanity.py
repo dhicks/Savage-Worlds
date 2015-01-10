@@ -8,23 +8,50 @@ The basic test is Guts - Knowledge (Mythos) - (a situation modifier).  The Guts 
 uses a Wild die (if appropriate), but not the Mythos roll.  Since the overall outcome 
 can be negative, there are five possible outcomes:  
 
-* Raise (≥8): Adrenaline surge; all Traits +1 for the Encounter
+* Raise (>=8): Adrenaline surge; all Traits +1 for the Encounter
 * Success (4-7): No effect
 * Positive failure (0-3): Roll on failure tables (not given here)
 * Negative failure (-3--1): Roll on failure tables, -1
-* Critical failure (≤-4): Roll on failure tables, -2
+* Critical failure (<=-4): Roll on failure tables, -2
 
 The module includes functions to simulate a large number of checks, for game balancing 
 purposes.  
 
 Requires dice and merge_dict modules (which should be in this repository), plus Pandas
 for the simulations.  
+
+Simulation output:  
+(Isolated integers are modifiers; Guts values in columns, Mythos values in rows)
+
+-1
+       6      8
+0  0.100  0.068
+4  0.569  0.465
+6  0.644  0.563
+
+0
+       6      8
+0  0.270  0.191
+4  0.699  0.611
+6  0.711  0.661
+
+1
+       6      8
+0  0.439  0.348
+4  0.746  0.707
+6  0.803  0.726
+
+2
+       6      8
+0  0.701  0.527
+4  0.812  0.758
+6  0.818  0.807
 """
+
+from __future__ import division 	# to fix division; must be at very top of file
 
 __author__      = "Dan Hicks"
 __email__   = 'hicks.daniel.j@gmail.com'
-
-from __future__ import division 	# to fix division
 
 from dice import roll_die			# to roll dice
 from merge_dict import merge_dict	# to combine dicts in building results table

@@ -1,9 +1,21 @@
+#!/usr/bin/env python
+
+'''
+dice.py: Dice rolling routines for Savage Worlds.  
+'''
+
+__author__  = 'Dan Hicks'
+__email__   = 'hicks.daniel.j@gmail.com'
+
 from random import randint
 
 def roll_die (faces, wild=False):
-	# Roll a single die, possibly with a wild die. 
-	# faces : number of faces on the die
-	# wild : whether to also roll a wild die
+	'''
+	Roll a single die, possibly with a wild die. 
+	Arguments: 
+	faces : number of faces on the die
+	wild : whether to also roll a wild die
+	'''
 	if faces < 1:
 		# if the caller tries to roll a 'zero-sided die', just return 0
 		return 0, (0, 0)
